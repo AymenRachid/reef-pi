@@ -1,34 +1,33 @@
 import * as Yup from 'yup'
-import {t} from 'i18next'
 
 const TimerSchema = Yup.object().shape({
   name: Yup.string()
-    .required(t('timers:name_required')),
+    .required('Name is required'),
   enable: Yup.bool()
-    .required(t('timers:timer_status_required')),
+    .required('Timer Status is required'),
   day: Yup.string()
-    .required(t('timers:day_required')),
+    .required('Day is required'),
   hour: Yup.string()
-    .required(t('timers:hour_required')),
+    .required('Hour is required'),
   minute: Yup.string()
-    .required(t('timers:minute_required')),
+    .required('Minute is required'),
   second: Yup.string()
-    .required(t('timers:second_required')),
+    .required('Second is required'),
   type: Yup.string()
-    .required(t('timers:type_required')),
+    .required('Type is required'),
   equipment_id: Yup.string()
     .when('type', (type, schema) => {
       if (type === 'equipment') {
-        return schema.required(t('timers:equipment_required'))
+        return schema.required('Equipment is required')
       } else {
         return schema
       }
     }),
-  on: Yup.bool().required(t('timers:on_required')),
+  on: Yup.bool().required('On is required'),
   duration: Yup.number()
     .when(['type', 'revert'], (type, revert, schema) => {
       if (type === 'equipment' && revert === true) {
-        return schema.required(t('timers:duration_required'))
+        return schema.required('Duration is required')
       } else {
         return schema
       }
@@ -37,7 +36,7 @@ const TimerSchema = Yup.object().shape({
   title: Yup.string()
     .when('type', (type, schema) => {
       if (type === 'reminder') {
-        return schema.required(t('timers:subject_required'))
+        return schema.required('Subject is required')
       } else {
         return schema
       }
@@ -45,7 +44,7 @@ const TimerSchema = Yup.object().shape({
   message: Yup.string()
     .when('type', (type, schema) => {
       if (type === 'reminder') {
-        return schema.required(t('timers:message_required'))
+        return schema.required('Message is required')
       } else {
         return schema
       }
