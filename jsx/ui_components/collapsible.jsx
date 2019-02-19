@@ -3,7 +3,6 @@ import { FaAngleDown, FaAngleUp } from 'react-icons/fa'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import Switch from 'react-toggle-switch'
-import i18next from 'i18next'
 
 class Collapsible extends React.Component {
   constructor (props) {
@@ -30,7 +29,7 @@ class Collapsible extends React.Component {
         onClick={this.handleEdit}
         id={'edit-' + name}
         className='btn btn-sm btn-outline-primary float-right d-block d-sm-inline ml-2'>
-        {i18next.t('collapsible:edit')}
+        Edit
       </button>
     )
     const handleSubmit = (values) => {
@@ -55,7 +54,7 @@ class Collapsible extends React.Component {
               onClick={this.handleDelete}
               id={'delete-' + name}
               className='btn btn-sm btn-outline-danger float-right d-block d-sm-inline ml-2'>
-              {i18next.t('collapsible:delete')}
+              Delete
             </button>
             {readOnly ? toggleStateButton : null}
             {readOnly ? editButton : null}

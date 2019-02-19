@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import i18next from 'i18next'
 
 export default class Equipment extends React.Component {
   constructor (props) {
@@ -113,7 +112,7 @@ export default class Equipment extends React.Component {
               disabled={this.props.disabled}
               defaultValue={this.state.duration}
             />
-            ({i18next.t('timers:equipment:seconds')})
+            (seconds)
           </div>
         </div>
       )
@@ -121,7 +120,7 @@ export default class Equipment extends React.Component {
     return (
       <div className='container'>
         <div className='row'>
-          <div className='col'>{i18next.t('timers:equipment:equipment')}</div>
+          <div className='col'>Equipment</div>
           <div className='col'>
             <div className='dropdown'>
               <button
@@ -138,7 +137,7 @@ export default class Equipment extends React.Component {
           </div>
         </div>
         <div className='row'>
-          <label className='col'> {i18next.t('timers:equipment:action')}</label>
+          <label className='col'> Action</label>
           <span className='col'>
             <div className='dropdown'>
               <button
@@ -153,11 +152,11 @@ export default class Equipment extends React.Component {
               <div className='dropdown-menu'>
                 <a className='dropdown-item' onClick={this.setAction(true)}>
                   {' '}
-                  {i18next.t('timers:equipment:on')}{' '}
+                  On{' '}
                 </a>
                 <a className='dropdown-item' onClick={this.setAction(false)}>
                   {' '}
-                  {i18next.t('timers:equipment:off')}{' '}
+                  Off{' '}
                 </a>
               </div>
             </div>
@@ -165,7 +164,7 @@ export default class Equipment extends React.Component {
         </div>
         <div className='row'>
           <div className='col'>
-            <label> {i18next.t('timers:equipment:revert')} </label>
+            <label> Revert </label>
           </div>
           <div className='col'>
             <input
